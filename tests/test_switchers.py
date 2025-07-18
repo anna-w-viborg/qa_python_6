@@ -1,5 +1,5 @@
-import allure
 import pytest
+import allure
 from conftest import driver
 from page_objects.po_home_page import HomePage
 from utils.locators import Locators
@@ -21,9 +21,11 @@ class TestSwitchers:
     @allure.description('"Проверка, что при клике на лого "Яндекс" в шапке страницы происходит переход на главную страницу Дзена')
     def test_logo_yandex_redirect_dzen(self, driver):
         home_page = HomePage(driver)
-        home_page.wait_visibility_of_element(Locators.high_button_order
+        home_page.wait_visibility_of_element(Locators.high_button_order)
         home_page.click_on_element(Locators.high_button_order)
         home_page.wait_visibility_of_element(Locators.field_name)
         home_page.wait_visibility_of_element(Locators.logo_yandex)
         home_page.click_on_element(Locators.logo_yandex)
+        home_page.switch_tab()
+        home_page.wait_visibility_of_element(Locators.logo_dzen)
         assert driver.current_url == TestUrls.url_dzen

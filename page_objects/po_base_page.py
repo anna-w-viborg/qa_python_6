@@ -4,6 +4,7 @@ import selenium
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from utils.locators import Locators
 
 class BasePage:
     def __init__(self, driver):
@@ -20,8 +21,8 @@ class BasePage:
 
     @allure.step('Ждем, когда элемент будет видно')
     def wait_visibility_of_element(self, locator):
-        self.driver.find_element(locator)
-        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+        self.driver.find_element(*locator)
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
 
     @allure.step('Кликаем на элемент')
     def click_on_element(self, locator):

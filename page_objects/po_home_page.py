@@ -24,15 +24,15 @@ class HomePage(BasePage):
         self.scroll_to_element(Locators.faq_section)
 
     @allure.step('Ожидание видимости нужного вопроса')
-    def wait_visibility_of_question(self, number):
+    def wait_visibility_of_question(self, number: int):
         self.wait_visibility_of_element(Locators.button_q[number])
 
     @allure.step('Кликнуть на нужный вопрос "Вопросы о важном"')
     def click_question(self, number):
-        self.driver.find_element(Locators.button_q[number]).click()
+        self.driver.find_element(*Locators.button_q[number]).click()
 
     @allure.step('Ожидание видимости нужного ответа')
-    def wait_visibility_of_answer(self, number):
+    def wait_visibility_of_answer(self, number: int):
         self.wait_visibility_of_element(Locators.answers[number])
 
 

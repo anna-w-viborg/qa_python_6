@@ -1,3 +1,4 @@
+import pytest
 import allure
 from utils.locators import Locators
 from page_objects.po_base_page import BasePage
@@ -42,16 +43,16 @@ class OrderPage(BasePage):
         self.click_on_element(Locators.field_when)
         #вставить данные в поле "Когда привезти самокат"
         self.send_keys_to_field(Locators.field_when, person[5])
+        # кликнуть на черный чекбокс
+        self.click_on_element(Locators.checkbox_color)
+        # кликнуть на поле "Комментарий для курьера"
+        self.click_on_element(Locators.field_comment)
+        # вставить данные в поле "Комментарий для курьера"
+        self.send_keys_to_field(Locators.field_comment, person[6])
         #кликнуть на поле "Срок аренды"
-        self.click_on_element(Locators.field_how_long)
+        self.click_on_element(Locators.field_long)
         #кликнуть на срок "сутки"
         self.click_on_element(Locators.set_how_long)
-        #кликнуть на черный чекбокс
-        self.click_on_element(Locators.checkbox_color)
-        #кликнуть на поле "Комментарий для курьера"
-        self.click_on_element(Locators.field_comment)
-        #вставить данные в поле "Комментарий для курьера"
-        self.send_keys_to_field(Locators.field_comment, person[6])
         #кликнуть на кнопку "Заказать
         self.click_on_element(Locators.button_2f_last)
         #кликнуть на кнопку подтверждения заказа

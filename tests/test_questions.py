@@ -10,7 +10,7 @@ from utils.locators import Locators
 @allure.title('Раздел "Вопросы о важном"')
 @allure.description('Проверка раскрытия ответов при клике на вопросы в разделе "Вопросы о важном"')
 @pytest.mark.parametrize('number, e_answer', enumerate(TestData.e_answer))
-def test_click_question_show_answer(driver, number, e_answer):
+def test_click_question_show_answer(driver, number:int, e_answer):
     #зайти на сайт
     home_page = HomePage(driver)
     #принять куки, чтобы не загораживало

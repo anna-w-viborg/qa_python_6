@@ -15,7 +15,6 @@ class TestFlow:
     def test_order_of_scooter_positive(self, driver, button, person):
         order_page = OrderPage(driver)
         order_page.accept_cookie()
-        order_page.wait_visibility_of_element(button)
         order_page.scroll_to_element(button)
         order_page.click_on_element(button)
         order_page.first_form_of_order(person)
