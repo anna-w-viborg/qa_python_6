@@ -15,7 +15,7 @@ class TestSwitchers:
         home_page.wait_visibility_of_element(Locators.field_name)
         home_page.wait_visibility_of_element(Locators.logo_scooter)
         home_page.click_on_element(Locators.logo_scooter)
-        assert home_page.get_current_url == TestUrls.url_home_page
+        assert home_page.get_current_url() == TestUrls.url_home_page
 
     @allure.title('Переход на главную страницу Дзена при клике лого "Яндекс"')
     @allure.description('"Проверка, что при клике на лого "Яндекс" в шапке страницы происходит переход на главную страницу Дзена')
